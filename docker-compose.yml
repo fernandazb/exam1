@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  webnode: 
+    container_name: nodeappexam
+    restart: always
+    build: .
+    ports:
+      - "3000:3000"
+    links:
+      - mongo
+    volumes:
+      - .:/usr/src/app
+  mongo: 
+    container_name: mongodb1
+    image: mongo
+    ports:
+      - "27020:27017"
+
